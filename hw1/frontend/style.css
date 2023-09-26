@@ -1,0 +1,242 @@
+:root {
+    --todo-intput-height: 2rem;
+    --todo-intput-font-size: 1rem;
+}
+
+body {
+    background-color: #A8D8B9;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 15vh;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    font-family: Garamond, serif;
+}
+
+#diary-input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+input#diary-image-input {
+    flex-grow: 1;   
+}
+input#diary-image-input,
+button#diary-add {
+    height: var(--todo-intput-height);
+    font-size: var(--todo-intput-font-size);
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+}
+textarea#diary-content-input {
+    width: 100%;
+    margin-top: 1rem;
+    height: 5rem;
+    resize: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+select#diary-tag-input {
+    width: 20%;
+    margin-top: 1rem;
+    height: 3rem;
+    resize: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+select#diary-emotion-input {
+    width: 20%;
+    margin-top: 1rem;
+    height: 3rem;
+    resize: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+
+.delete-diary{
+    height: var(--todo-intput-height);
+    font-size: var(--todo-intput-font-size);
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+    color: white;
+    background-color: #CB1B45;
+}
+
+.edit-diary{
+    height: var(--todo-intput-height);
+    font-size: var(--todo-intput-font-size);
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+    color: white;
+    background-color: #FFB11B;
+}
+
+
+/* Style the modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px; /* Location of the box */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row-reverse; /* Display content in reverse order (image on the right) */
+}
+
+.image-display {
+    margin: auto;
+    padding: 10px;
+    width: 50%;
+    margin-left: 70px; /*Add margin to separate the image from the content*/
+}
+
+/* Adjust image size */
+.image-display img {
+    max-width: 100%; /* Ensure the image does not exceed its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 250px; /* Limit the maximum height */
+}
+
+/* Style the modal-edit */
+.modal-edit {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px; /* Location of the box */
+}
+
+/* Modal Content */
+.modal-content-edit {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close button */
+.close-edit {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-edit:hover,
+.close-edit:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row-reverse; /* Display content in reverse order (image on the right) */
+}
+
+.image-display-edit {
+    margin: auto;
+    padding: 10px;
+    width: 50%;
+    margin-left: 70px; /*Add margin to separate the image from the content*/
+}
+
+/* Adjust image size */
+.image-display-edit img {
+    max-width: 100%; /* Ensure the image does not exceed its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 250px; /* Limit the maximum height */
+}
+
+
+input#diary-image-input-edit {
+    flex-grow: 1;   
+}
+input#diary-image-input-edit,
+button#diary-save {
+    height: var(--todo-intput-height);
+    font-size: var(--todo-intput-font-size);
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+}
+textarea#diary-content-input-edit {
+    width: 100%;
+    margin-top: 1rem;
+    height: 5rem;
+    resize: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+select#diary-tag-input-edit {
+    width: 20%;
+    margin-top: 1rem;
+    height: 3rem;
+    resize: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+select#diary-emotion-input-edit {
+    width: 20%;
+    margin-top: 1rem;
+    height: 3rem;
+    resize: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}

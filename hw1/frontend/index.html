@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="index.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>My Diary</h1>
+    </div>
+    <hr />
+    <!-- 新增日記 -->
+    <button id="openDiaryBtn" class="mb-3">新增日記</button>
+    <select id="diary-filter">
+        <option>全部</option>
+        <option>學業</option>
+        <option>人際</option>
+        <option>社團</option>
+        <option>快樂</option>
+        <option>生氣</option>
+        <option>難過</option>
+    </select>
+
+
+    <div id="diaryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="content-wrapper">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+                            <input type="text" id="diary-image-input" placeholder="https://" tabindex="1" />
+                            <div id="diary-input-container">
+                                <select id="diary-tag-input">
+                                    <option>請選擇你的標籤</option>
+                                    <option>學業</option>
+                                    <option>人際</option>
+                                    <option>社團</option>
+                                </select>
+                                <select id="diary-emotion-input">
+                                    <option>請選擇你的心情</option>
+                                    <option>快樂</option>
+                                    <option>生氣</option>
+                                    <option>難過</option>
+                                </select>
+                            </div>
+                            <textarea id="diary-content-input" placeholder="New diary" tabindex="2"></textarea>
+                            <button id="diary-add" tabindex="3">add</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="imageDisplay" class="image-display"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 編輯日記 -->
+    <div id="diaryModal-edit" class="modal-edit">
+        <div class="modal-content-edit">
+            <span class="close-edit">&times;</span>
+            <div class="content-wrapper">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+                            <input type="text" id="diary-date-edit" placeholder="" tabindex="1" />
+                            <input type="text" id="diary-image-input-edit" placeholder="https://" tabindex="1" />
+                            <div id="diary-input-container">
+                                <select id="diary-tag-input-edit">
+                                    <option>請選擇你的標籤</option>
+                                    <option>學業</option>
+                                    <option>人際</option>
+                                    <option>社團</option>
+                                </select>
+                                <select id="diary-emotion-input-edit">
+                                    <option>請選擇你的心情</option>
+                                    <option>快樂</option>
+                                    <option>生氣</option>
+                                    <option>難過</option>
+                                </select>
+                            </div>
+                            <textarea id="diary-content-input-edit" placeholder="New diary" tabindex="2"></textarea>
+                            <button id="diary-save" tabindex="3">save</button>
+                            <button id="diary-cancel" tabindex="3">cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="imageDisplay-edit" class="image-display"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <section id="diary-container" class="row"></section>
+
+    <template id="diary-template">
+        <div id="" class="diary-item col-md-6">
+            <div class="card mb-3">
+                <img class="card-img-top diary-image" alt="糟糕照片顯示錯誤">
+                <div class="card-body">
+                    <p class="card-text"><span class="diary-date"></span></p>
+                    <span class="badge text-bg-success mb-3 diary-tag">Info</span>
+                    <span class="badge text-bg-info mb-3 diary-emotion">Info</span>
+                    <p class="card-text"><span class="diary-content"></span></p>
+                    <button data-id="" class="edit-diary">edit</button>
+                    <button data-id="" class="delete-diary">delete</button>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    
+</body>
+</html>
