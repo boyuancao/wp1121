@@ -102,7 +102,15 @@ export async function updateTaskComplete(
     completed,
   });
 
+
+
   // TODO: 9. Update the task's `completed` column
+  await db
+  .update(tasksTable)
+  .set({ completed }) // 使用物件指定要更新的欄位和值
+  .where(eq(tasksTable.displayId, taskId))
+  .returning();
+  
 
   // TODO: 9. end
 
